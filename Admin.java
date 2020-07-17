@@ -76,3 +76,11 @@ public class BorrowBooks extends JInternalFrame {
 				informationTextField[i].setText(null);
 	}
 	
+	//constructor of borrowBooks
+	public BorrowBooks() {
+		//for setting the title for the internal frame
+		super("Borrow Books", false, true, false, true);
+		//for setting the icon
+		setFrameIcon(new ImageIcon(ClassLoader.getSystemResource("images/Export16.gif")));
+		//for getting the graphical user interface components display area
+		Container cp = getContentPane();
