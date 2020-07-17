@@ -53,4 +53,13 @@ public PrintingMembers(String query) {
     		setVisible(true);
 		pack();
 	}
+	
+	
+	int numLines = lines.size();
+	int linesPerPage = Math.max(hPage / hLine, 1);
+	int numPages = (int) Math.ceil((double) numLines / (double) linesPerPage);
+	if (pageIndex >= numPages) {
+		lines = null;
+		return NO_SUCH_PAGE;
+	}
 }
