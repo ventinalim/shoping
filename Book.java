@@ -53,7 +53,31 @@ public PrintingMembers(String query) {
     		setVisible(true);
 		pack();
 	}
-	
+	public int print(Graphics pg, PageFormat pageFormat, int pageIndex) throws PrinterException {
+		pg.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY());
+		int wPage = (int) pageFormat.getImageableWidth();
+		int hPage = (int) pageFormat.getImageableHeight();
+		pg.setClip(0, 0, wPage, hPage);
+
+		pg.setColor(textArea.getBackground());
+		pg.fillRect(0, 0, wPage, hPage);
+		pg.setColor(textArea.getForeground());
+
+		Font font = textArea.getFont();
+		pg.setFont(font);
+		FontMetrics fm = pg.getFontMetrics();
+		int hLine = fm.getHeight();
+
+		if (lines == null)
+			lines = getLines(fm, wPage);
+
+		int numLines = lines.size();
+		int linesPerPage = Math.max(hPage / hLine, 1);
+		int numPages = (int) Math.ceil((double) numLines / (double) linesPerPage);
+		if (pageIndex >= numPages) {
+			lines = null;
+			return NO_SUCH_PAGE;
+		}
 		int x = 0;
 		int y = fm.getAscent();
 		int lineIndex = linesPerPage * pageIndex;
