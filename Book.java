@@ -34,5 +34,9 @@ public PrintingMembers(String query) {
 			connection.close();
 		}
 		catch (SQLException SQLe) {
-    
+			System.out.println(SQLe.toString());
+		}
+    		setVisible(true);
+		pack();
+	}
 }
