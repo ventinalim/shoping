@@ -53,4 +53,14 @@ public PrintingMembers(String query) {
     		setVisible(true);
 		pack();
 	}
+	public int print(Graphics pg, PageFormat pageFormat, int pageIndex) throws PrinterException {
+		pg.translate((int) pageFormat.getImageableX(), (int) pageFormat.getImageableY());
+		int wPage = (int) pageFormat.getImageableWidth();
+		int hPage = (int) pageFormat.getImageableHeight();
+		pg.setClip(0, 0, wPage, hPage);
+
+		pg.setColor(textArea.getBackground());
+		pg.fillRect(0, 0, wPage, hPage);
+		pg.setColor(textArea.getForeground());
+
 }
