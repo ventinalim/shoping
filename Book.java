@@ -11,5 +11,14 @@ public PrintingMembers(String query) {
 		try {
 			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 		}
+		catch (ClassNotFoundException ea) {
+			System.out.println(ea.toString());
+		}
+		catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		try {
+			connection = DriverManager.getConnection(URL);
+			statement = connection.createStatement();
     
 }
