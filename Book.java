@@ -53,4 +53,11 @@ public PrintingMembers(String query) {
     		setVisible(true);
 		pack();
 	}
+	Font font = textArea.getFont();
+		pg.setFont(font);
+		FontMetrics fm = pg.getFontMetrics();
+		int hLine = fm.getHeight();
+
+		if (lines == null)
+			lines = getLines(fm, wPage);
 }
