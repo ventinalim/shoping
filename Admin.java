@@ -84,3 +84,11 @@ public class BorrowBooks extends JInternalFrame {
 		setFrameIcon(new ImageIcon(ClassLoader.getSystemResource("images/Export16.gif")));
 		//for getting the graphical user interface components display area
 		Container cp = getContentPane();
+		
+		//for setting the layout
+		northPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+		
+		northPanel.add(title);
+		//for adding the panel to the container
+		cp.add("North", northPanel);
+
