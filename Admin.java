@@ -94,6 +94,10 @@ public class BorrowBooks extends JInternalFrame {
 		//for adding the panel to the container
 		cp.add("North", northPanel);
 		
+		//for setting the layout
+		centerPanel.setLayout(new BorderLayout());
+		//for setting the layout for the internal panel
+		informationPanel.setLayout(new GridLayout(4, 2, 1, 1));
 		/* for adding the strings to the labels, for setting the font*/
 		/* and adding these labels to the panel.*/
 		/* finally adding the panel to the container*/
