@@ -11,5 +11,28 @@ public PrintingMembers(String query) {
 		try {
 			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 		}
+		catch (ClassNotFoundException ea) {
+			System.out.println(ea.toString());
+		}
+		catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		try {
+			connection = DriverManager.getConnection(URL);
+			statement = connection.createStatement();
+			resultset = statement.executeQuery(query);
+			textArea.append("=============== Members Information ===============\n\n");
+			while (resultset.next()) {
+				textArea.append("Member ID: " + resultset.getString("ID") + "\n" +
+				        "Name: " + resultset.getString("Name") + "\n" +
+				        "Major: " + resultset.getString("Major") + "\n" +
+				        "Expired: " + resultset.getString("Expired") + "\n\n");
+			}
+			textArea.append("=============== Members Information ===============");
+			resultset.close();
+			statement.close();
+			connection.close();
+		}
+		catch (SQLException SQLe) {
     
 }
