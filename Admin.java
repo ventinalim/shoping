@@ -42,3 +42,24 @@ public class BorrowBooks extends JInternalFrame {
 	private String date = new SimpleDateFormat("dd-MM-yy", Locale.getDefault()).format(new java.util.Date());
 	//for creating an array of string to store the data
 	private String[] data;
+	
+	//for creating an Internal Panel in the center panel
+	private JPanel borrowButtonPanel = new JPanel();
+	//for creating the button
+	private JButton borrowButton = new JButton("Borrow");
+
+	//for creating South Panel
+	private JPanel southPanel = new JPanel();
+	//for creating the button
+	private JButton cancelButton = new JButton("Cancel");
+
+	//for creating an object
+	private Books book;
+	private Members member;
+	private Borrow borrow;
+	
+	//for setting the array of JTextField to null
+	public void clearTextField() {
+		for (int i = 0; i < informationTextField.length; i++)
+			if (i != 2)
+				informationTextField[i].setText(null);
