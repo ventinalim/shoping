@@ -58,8 +58,21 @@ public class BorrowBooks extends JInternalFrame {
 	private Members member;
 	private Borrow borrow;
 	
+	//for checking the information from the text field
+	public boolean isCorrect() {
+		data = new String[4];
+		for (int i = 0; i < informationLabel.length; i++) {
+			if (!informationTextField[i].getText().equals(""))
+				data[i] = informationTextField[i].getText();
+			else
+				return false;
+		}
+		return true;
+	}
 	//for setting the array of JTextField to null
 	public void clearTextField() {
 		for (int i = 0; i < informationTextField.length; i++)
 			if (i != 2)
 				informationTextField[i].setText(null);
+	}
+	
