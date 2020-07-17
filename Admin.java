@@ -8,6 +8,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import com.lling.qiqu.beans.User;
+import com.lling.qiqu.commons.Constants;
+import com.lling.qiqu.commons.ResponseInfo;
+import com.lling.qiqu.service.IUserService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,3 +30,15 @@ public class BorrowBooks extends JInternalFrame {
 	//for creating the Center Panel
 	private JPanel centerPanel = new JPanel();
 	//for creating an Internal Panel in the center panel
+	private JPanel informationPanel = new JPanel();
+	//for creating an array of JLabel
+	private JLabel[] informationLabel = new JLabel[4];
+	//for creating an array of String
+	private String[] informationString = {" Write the Book ID:", " Write the Member ID:",
+	                                      " The Current Data:", " The Return Date:"};
+	//for creating an array of JTextField
+	private JTextField[] informationTextField = new JTextField[4];
+	//for creating the date in the String
+	private String date = new SimpleDateFormat("dd-MM-yy", Locale.getDefault()).format(new java.util.Date());
+	//for creating an array of string to store the data
+	private String[] data;
