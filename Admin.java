@@ -87,8 +87,17 @@ public class BorrowBooks extends JInternalFrame {
 		
 		//for setting the layout
 		northPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-		
+		//for setting the font
+		title.setFont(new Font("Tahoma", Font.BOLD, 14));
+		//for adding the label to the panel
 		northPanel.add(title);
 		//for adding the panel to the container
 		cp.add("North", northPanel);
+		
+		/* for adding the strings to the labels, for setting the font*/
+		/* and adding these labels to the panel.*/
+		/* finally adding the panel to the container*/
+    
+  }
+}
 
