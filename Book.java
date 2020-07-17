@@ -53,4 +53,15 @@ public PrintingMembers(String query) {
     		setVisible(true);
 		pack();
 	}
+	
+		int x = 0;
+		int y = fm.getAscent();
+		int lineIndex = linesPerPage * pageIndex;
+		while (lineIndex < lines.size() && y < hPage) {
+			String str = (String) lines.get(lineIndex);
+			pg.drawString(str, x, y);
+			y += hLine;
+			lineIndex++;
+		}
+	
 }
